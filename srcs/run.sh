@@ -21,15 +21,17 @@ mv wordpress/ var/www/html/
 chown -R www-data:www-data /var/www/html/wordpress
 cp -rp ./tmp/wp-config.php /var/www/html/wordpress
 
-# wordpress를 위한 DB 테이블 생성 
+# wordpress를 위한 DB 테이블 생성
 service mysql start
+mysql < /var/www/html/phpmyadmin/sql/create_tables.sql -u root --skip-password
+
 echo "CREATE DATABASE IF NOT EXISTS wordpress;" \
 	| mysql -u root --skip-password
-echo "CREATE USER IF NOT EXISTS 'daelee'@'localhost' IDENTIFIED BY 'daelee';" \
+echo "CREATE USER IF NOT EXISTS 'minsungk'@'localhost' IDENTIFIED BY '1111';" \
 	| mysql -u root --skip-password
-echo "GRANT ALL PRIVILEGES ON wordpress.* TO 'daelee'@'localhost' WITH GRANT OPTION;" \
+echo "GRANT ALL PRIVILEGES ON wordpress.* TO 'minsungk'@'localhost' WITH GRANT OPTION;" \
 	| mysql -u root --skip-password
-	
+
 # phpMyAdmin 설치 및 설정
 wget https://files.phpmyadmin.net/phpMyAdmin/5.0.2/phpMyAdmin-5.0.2-all-languages.tar.gz
 tar -xvf phpMyAdmin-5.0.2-all-languages.tar.gz

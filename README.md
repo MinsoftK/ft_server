@@ -25,5 +25,3 @@ ft_server 는 시스템 관리 개념을 소개하기 위한 과제이다. *스�
 - URL에 따라 정확한 웹사이트로 연결될 수 있도록 처리해야 한다.
 - 언제든 해제할 수 있는 `autoindex`가 적용되어야 한다.
 - [채점 매뉴얼](https://yeosong1.github.io/ft_server-채점-방법)
-
-test
